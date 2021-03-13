@@ -12,6 +12,9 @@ public class Directory {
 			new ArrayList<>();
 	
 
+	public DirectoryEntry get(int index) {
+		return theDirectory.get(index);
+	}
 	/** Add an entry to theDirectory or change an existing entry.
 	 * @param aName The name of the person being added or changed
 	 * @param newNumber The new number to be assigned
@@ -64,5 +67,19 @@ public class Directory {
 				return dE;
 			}else
 				return null;
+		}
+		
+		@Override
+		public String toString() {
+			String output = "";
+			if(theDirectory.size() == 0) {
+				return "Directory is empty.";
+			}
+			else {
+				for( int i = 0; i < theDirectory.size(); i++) {
+					output += theDirectory.get(i).getName() + " " + theDirectory.get(i).getNumber() + "\n";
+				}
+			}
+			return output;
 		}
 }
